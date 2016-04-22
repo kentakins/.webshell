@@ -5,13 +5,13 @@ pm2 install pm2-webshell
 
 // setup
 pm2 conf pm2-webshell:bind 127.0.0.1
-pm2 set pm2-webshell:port 80
+pm2 set pm2-webshell:port 8080
 
 // start
-sudo pm2 start
+pm2 start
 
 // stop 
-sudo pm2 kill
+pm2 kill
 
 when first cloning need to create symlinks to the pm2 dir
 
