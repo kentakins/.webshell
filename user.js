@@ -18,17 +18,13 @@ window.onbeforeunload = function(e) {
 };
 
 window.onkeydown = function(e) {
-	if(e.keyCode === 49 && e.ctrlKey) {
+	if(e.keyCode === 49 && e.ctrlKey && terminal2 && confirm('Are you sure you want to KILL TERMINAL 2???')) {
 		// ctrl + 1
-		console.log('ctrl + 1')
-		if(terminal2 && confirm('Are you sure you want to KILL TERMINAL 2???')) {
-			terminal2.destroy()
-			terminal2 = null
-			terminal1.split('left', 100)
-		}
+		terminal2.destroy()
+		terminal2 = null
+		terminal1.split('left', 100)
 	} else if(e.keyCode === 50 && e.ctrlKey) {
 		// ctrl + 2
-		console.log('ctrl + 2')
 		terminal1.split('left', 55)
 		terminal2 = new tty.Window()
 		terminal2.resize(50, 10)
@@ -43,17 +39,13 @@ var resizeTimer
 window.onresize = function(e) {
 	resizePrep(terminal1)
 	if(terminal2) resizePrep(terminal2)
-
 	clearTimeout(resizeTimer)
 	resizeTimer = setTimeout(function() {
-		if(terminal1 && terminal2) {
-			terminal1.element.style.display = 'block';
-			terminal1.split('left', 55)
+		terminal1.element.style.display = 'block';
+		terminal1.split('left', 100)
+		if(terminal2) {
 			terminal2.element.style.display = 'block';
 			terminal2.split('right', 45)
-		} else {
-			terminal1.element.style.display = 'block';
-			terminal1.split('left', 100)
 		}
 	}, 200)
 }
@@ -63,7 +55,6 @@ function resizePrep(term) {
 	term.element.style.display = 'none';
 	term.element.style.width = '';
 	term.element.style.height = '';
-
 	term.element.style.overflow = '';
 	term.element.style.opacity = '';
 	term.element.style.cursor = '';
