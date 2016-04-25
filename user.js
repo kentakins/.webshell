@@ -7,15 +7,15 @@ Terminal.on(window, 'load', function(){
 		terminal1 = new tty.Window()
 		document.title = "Terminal"
 		terminal1.resize(50, 10)
-	}, 20)
+	}, 50)
 	setTimeout(function(){
 		terminal1.split('left', 100)
-	}, 50)
+	}, 100)
 })
 
 window.onbeforeunload = function(e) {
 	return 'Are you sure you want to leave this page?  You will lose any unsaved data.';
-};
+}
 
 window.onkeydown = function(e) {
 	if(e.keyCode === 49 && e.ctrlKey && terminal2 && confirm('Are you sure you want to KILL TERMINAL 2???')) {
@@ -75,7 +75,7 @@ tty.Window.prototype.split = function(side, percent) {
     rows: term.rows,
     left: el.offsetLeft,
     top: el.offsetTop
-  };
+  }
 
   window.scrollTo(0, 0);
 
@@ -95,4 +95,4 @@ tty.Window.prototype.split = function(side, percent) {
 
 	this.resize(x, y);
 
-};
+}
