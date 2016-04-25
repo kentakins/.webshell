@@ -13,9 +13,9 @@ body {
 
 .terminal {
   border: #000 solid 0px;
-  font-family: /*"MDL300 Base CE for Powerline",*/ "Droid Sans Mono for Powerline", monospace;
-  font-size: 17px;
-  font-weight: 700;
+  font-family: "MDL300 Base CE for Powerline", "Droid Sans Mono for Powerline", monospace;
+  font-size: 15px;
+  font-weight: 400;
 	line-height: 23px;
   color: #FFF;
   background: #000;
@@ -32,5 +32,5 @@ body {
 	white-space: nowrap;
 	display: inline-block;
 	height: 23px;
-	min-width: 9.5px;
+	min-width: 10.5px;
 }
